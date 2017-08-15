@@ -1,0 +1,56 @@
+---
+title: "Vignette RP"
+author: "Ximeng Zhao"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette RP}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+The RP package can be used to analyze the data from the US National Highway Traffic Safety Administration's. The R package is available on my Github and can be used by typing the following commands:
+
+```r
+devtools::install_github("https://github.com/SimonFans/RP")
+
+```
+## Functions 
+
+There are five functions that can be utilized for the analysis
+
+-fars_read()
+-make_filename()
+-fars_read_years()
+-fars_summarize_years()
+-fars_map_state()
+
+The function "fars_read()" implements the read methods to a csv file.
+```{r, echo=FALSE}
+data<-fars_read(filename="./accident_2014.csv.bz2")
+```
+
+The function "make_filename()" creates a filename for a .csv.bz2 based on the year that you input.
+```{r, echo=FALSE}
+data_filename<-make_filename(2014)
+```
+
+The function "fars_read_years()" returns a list of dataframes with MONTH and year columns based on data in "accident_<year>.csv.bz2" files.
+```{r, echo=FALSE}
+month_year<-fars_read_years(2014)
+```
+
+The function "fars_summarize_years()" counts number of accidents per month and year.
+```{r, echo=FALSE}
+accidents_summary<-fars_summarize_years(2013:2015)
+```
+
+The function "fars_map_state()" accepts a state number and year and plots the accidents in a simple map.
+```{r, echo=FALSE}
+accidents_state_year<-fars_map_state(35, 2014)
+```
+
+The accidents data from 2013 to 2015 are available in both data folder and RP directory. 
+
+
+
