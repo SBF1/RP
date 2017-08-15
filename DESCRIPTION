@@ -1,0 +1,20 @@
+Package: MyPackage
+Title: Package that I made
+Version: 0.1.0
+Authors: Ximeng Zhao <SZ@sina.com>
+Description: This is a sample package
+Depends: R (>= 3.4.0)
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports: readr,
+         dplyr,
+         tidyr,
+         maps,
+         graphics
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr
